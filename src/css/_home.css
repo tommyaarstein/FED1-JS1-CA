@@ -1,0 +1,72 @@
+/* Hero section */
+.hero {
+  min-height: 100vh;
+  background-image: url("../../assets/images/Hero-resize.jpg");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-blur {
+  position: relative;
+  width: min(750px, calc(100% - 2rem));
+  margin: 0 auto 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.25rem;
+}
+
+/* Blur */
+.hero-blur::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: rgba(217, 217, 217, 0.95);
+  filter: blur(40px);
+  border-radius: 12px;
+}
+
+/* Title text */
+.hero-blur h1 {
+  position: relative;
+  margin: 0;
+
+  font-family: var(--font-main);
+  font-size: clamp(28px, 6vw, 48px);
+  font-weight: 700;
+  color: var(--color-bg-blue);
+  text-align: center;
+  max-width: 100%;
+  white-space: 100%;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-family: var(--font-main);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: var(--color-bg-gold);
+  color: #000000;
+}
+
+.hero-content .btn {
+  max-width: 220px;
+  width: 100%;
+}

@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* Core partials */
+@import url("./_reset.css");
+@import url("./_variables.css");
+@import url("./_base.css");
+
+/* Add as you go */
+@import url("./_layout.css");
+@import url("./_header.css");
+@import url("./_components.css");
+@import url("./_footer.css");
+@import url("./_home.css");
+@import url("./_products.css");
+@import url("./_product-page.css");
+@import url("./_checkout.css");
+@import url("./_payment.css");
+@import url("./_order-confirmation.css");
+@import url("./_coming-soon.css");

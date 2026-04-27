@@ -1,0 +1,84 @@
+.order-page {
+    background: var(--color-bg-blue);
+    padding: 3rem 0;
+}
+
+.order-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #6f6f6f;
+    border-radius: 10px;
+    padding: 4rem 2.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.order-title {
+    margin: 0 0 2rem;
+    font-family: var(--font-main);
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--color-text-inverse);
+}
+
+.order-number {
+    margin: 0 0 3rem;
+    font-size: 16px;
+    color: var(--color-text-inverse);
+}
+
+.order-info {
+    margin: 0 auto 5rem;
+    max-width: 520px;
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--color-text-inverse);
+}
+
+.rating {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.rating-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-text-inverse);
+    margin: 0;
+    display: inline-block;
+}
+
+.rating-stars {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.star-btn {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.star-btn img {
+    width: 40px;
+    height: 40px;
+    display: block;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.star-btn:hover img {
+    transform: scale(1.15);
+    opacity: 0.85;
+}
+
+@media (max-width: 900px) {
+    .star-btn img {
+            width: 50px;
+            height: 30px;
+            display: block;
+            transition: transform 0.15s ease, opacity 0.15s ease;
+        }
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Confirmation of your order at RainyDays."/>
+    <title>Order Confirmation | RainyDays</title>
+    <link rel="stylesheet" href="../src/css/styles.css" />
+  </head>
+<body>
+  <header>
+    <div class="container header-bar">
+
+      <!-- Mobile menu -->
+      <details class="mobile-nav">
+        <summary class="nav-toggle" aria-label="Open menu">☰</summary>
+
+        <nav class="mobile-nav-panel" aria-label="Mobile navigation">
+          <a href="../index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="coming-soon.html">About</a>
+          <a href="coming-soon.html">Login</a>
+          <a href="coming-soon.html">Register</a>
+        </nav>
+      </details>
+
+      <!-- Logo -->
+      <a href="../index.html" class="logo-link">
+        <img src="../assets/images/RainyDays_Logo.png" alt="RainyDays Logo" />
+      </a>
+
+      <!-- Desktop navigation -->
+      <nav class="desktop-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="coming-soon.html">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- Cart -->
+      <a href="checkout.html" class="cart-link" aria-label="Shopping cart">
+        <img src="../assets/images/icons8-shopping-cart-64.png" alt="" />
+        <span class="cart-badge" aria-hidden="true">0</span>
+      </a>
+
+      <!-- Desktop auth -->
+      <div class="auth-links">
+        <a href="coming-soon.html">Login</a>
+        <span aria-hidden="true">|</span>
+        <a href="coming-soon.html">Register</a>
+      </div>
+    </div>
+  </header>
+  
+    <main class="order-page">
+      <section class="order container" aria-label="Order Confirmation">
+        <div class="order-card">
+          <h1 class="order-title">Thank you for your purchase!</h1>
+          <p class="order-number">Your order number is: <strong>#123456</strong></p>
+          <p class="order-info">
+            New orders will be shipped at 1pm every day. Your order confirmation<br />
+            will be sent to the email provided.
+          </p>
+          <div class="rating" role="group" aria-label="Rate your experience">
+            <p class="rating-label">Feel free to rate your experience:</p>
+
+            <div class="rating-stars">
+              <button type="button" class="star-btn" aria-label="Rate 1 star">
+                <img src="../assets/images/icons8-star-filled-48.png" alt="" />
+              </button>
+              <button type="button" class="star-btn" aria-label="Rate 2 stars">
+                <img src="../assets/images/icons8-star-filled-48.png" alt="" />
+              </button>
+              <button type="button" class="star-btn" aria-label="Rate 3 stars">
+                <img src="../assets/images/icons8-star-filled-48.png" alt="" />
+              </button>
+              <button type="button" class="star-btn" aria-label="Rate 4 stars">
+                <img src="../assets/images/icons8-star-filled-48.png" alt="" />
+              </button>
+              <button type="button" class="star-btn" aria-label="Rate 5 stars">
+                <img src="../assets/images/icons8-rating-40.png" alt="" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  <footer>
+    <div class="footer-content">
+      <div></div>
+      <p class="footer-copy">© 2025 Rainydays AS. All rights reserved.</p>
+      <p class="footer-icons">icons by Icons8</p>
+    </div>
+  </footer>
+</body>
+</html>
