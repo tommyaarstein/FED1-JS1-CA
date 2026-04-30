@@ -74,3 +74,11 @@
 #main-content {
   background-color: var(--color-bg-blue);
 }
+
+.products {
+margin-left: 2.5rem;
+}
+
+.products-page-title {
+  justify-self: center;
+}

@@ -4,8 +4,13 @@ const productGrid = document.querySelector(".product-grid");
 
 // --- STATE ---
 let allJackets = [];
+let productPagePath ="products/peder-jacket.html"
 
 // --- FUNCTIONS ---
+if (document.location.pathname.includes("index.html") || document.location.pathname === "/") {
+    productPagePath = "pages/products/peder-jacket.html";
+}
+
 async function fetchJackets() {
     const url = 'https://v2.api.noroff.dev/rainy-days';
 
@@ -39,7 +44,7 @@ function displayJackets() {
     for (let i = 0; i < allJackets.length; i++) {
         jacketsHTML += `
             <article class="product-card">
-            <a class="product-link" href="products/peder-jacket.html?id=${allJackets[i].id}">
+            <a class="product-link" href="${productPagePath}?id=${allJackets[i].id}">
             <img class="product-card img" src="${allJackets[i].image.url}" alt="${allJackets[i].image.alt}">
             <h2>${allJackets[i].title}</h2>
             </a>
