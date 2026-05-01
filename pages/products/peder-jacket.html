@@ -54,7 +54,13 @@
   </header>
   
     <main class="product-page">
-      <section class="product-top container">
+      <div class="single-product-loading">
+        <div class="loading-message">
+          <div class="loading-spinner"></div>
+          <p>We are currently fetching the jacket for you...</p>
+        </div>
+      </div>
+      <section class="product-top container product-content">
         <section class="gallery" aria-label="Product Images">
           <div class="gallery-main">
             <button class="gallery-arrow" type="button" aria-label="Previous image">
@@ -126,16 +132,16 @@
                 <p class="vat-note">VAT included</p>
               </div>
 
-              <a href="../checkout.html" class="btn btn-primary add-to-cart">
+              <button class="btn btn-primary add-to-cart" type="button">
                 <img src="../../assets/images/icons8-add-shopping-cart-64.png" alt="" />
                 Add to cart
-              </a>
+              </button>
             </div>
           </div>
         </aside>
 
       </section>
-      <section class="product-bottom container" aria-label="Product information">
+      <section class="product-bottom container product-extra-info" aria-label="Product information">
         <div class="accordion-wrap">
           <details class="accordion" open>
             <summary>Specifications</summary>

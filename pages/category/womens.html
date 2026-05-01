@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Browse and buy jackets for all kinds of weather."/>
-    <title>Products | RainyDays</title>
-    <link rel="stylesheet" href="../src/css/styles.css" />
+    <title>Women's Jackets | RainyDays</title>
+    <link rel="stylesheet" href="../../src/css/styles.css" />
   </head>
 
 <body>
@@ -17,59 +17,59 @@
         <summary class="nav-toggle" aria-label="Open menu">☰</summary>
 
         <nav class="mobile-nav-panel" aria-label="Mobile navigation">
-          <a href="../index.html">Home</a>
-          <a href="products.html">Products</a>
-          <a href="coming-soon.html">About</a>
-          <a href="coming-soon.html">Login</a>
-          <a href="coming-soon.html">Register</a>
+          <a href="../../index.html">Home</a>
+          <a href="../products.html">Products</a>
+          <a href="../coming-soon.html">About</a>
+          <a href="../coming-soon.html">Login</a>
+          <a href="../coming-soon.html">Register</a>
         </nav>
       </details>
 
       <!-- Logo -->
-      <a href="../index.html" class="logo-link">
-        <img src="../assets/images/RainyDays_Logo.png" alt="RainyDays Logo" />
+      <a href="../../index.html" class="logo-link">
+        <img src="../../assets/images/RainyDays_Logo.png" alt="RainyDays Logo" />
       </a>
 
       <!-- Desktop navigation -->
       <nav class="desktop-nav" aria-label="Primary">
         <ul class="nav-list">
-          <li><a href="../index.html">Home</a></li>
+          <li><a href="../../index.html">Home</a></li>
           <li class="nav-dropdown">
             <a class="active" href="../products.html">Products</a>
               <div class="dropdown-menu">
-                <a href="products.html">All jackets</a>
-                <a href="category/mens.html">Men's jackets</a>
-                <a href="category/womens.html">Women's jackets</a>
+                <a href="../products.html">All jackets</a>
+                <a href="mens.html">Men's jackets</a>
+                <a href="womens.html">Women's jackets</a>
               </div>
           </li>
-          <li><a href="coming-soon.html">About</a></li>
+          <li><a href="../coming-soon.html">About</a></li>
         </ul>
       </nav>
 
       <!-- Cart -->
-      <a href="checkout.html" class="cart-link" aria-label="Shopping cart">
-        <img src="../assets/images/icons8-shopping-cart-64.png" alt="" />
+      <a href="../checkout.html" class="cart-link" aria-label="Shopping cart">
+        <img src="../../assets/images/icons8-shopping-cart-64.png" alt="" />
         <span class="cart-badge" aria-hidden="true">0</span>
       </a>
 
       <!-- Desktop auth -->
       <div class="auth-links">
-        <a href="coming-soon.html">Login</a>
+        <a href="../coming-soon.html">Login</a>
         <span aria-hidden="true">|</span>
-        <a href="coming-soon.html">Register</a>
+        <a href="../coming-soon.html">Register</a>
       </div>
     </div>
   </header>
   
   <main class="products-page">
     <section class="products container">
-      <h1 class="products-page-title">Products</h1>
+      <h1 class="products-page-title">Women's Jackets</h1>
       <div class="product-filters">
         <button class="filter-button" data-gender="all" type="button">All</button>
         <button class="filter-button" data-gender="Male" type="button">Men</button>
         <button class="filter-button" data-gender="Female" type="button">Women</button>
       </div>
-      <div class="product-grid">
+      <div class="product-grid" data-category-gender="Female">
       </div>
     </section>
   </main>
@@ -82,6 +82,6 @@
     </div>
   </footer>
 
-  <script src="../src/js/index.js"></script>
+  <script src="../../src/js/index.js"></script>
 </body>
 </html>

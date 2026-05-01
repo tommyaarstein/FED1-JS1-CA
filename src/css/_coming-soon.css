@@ -18,3 +18,20 @@
     color: var(--color-text-inverse);
     text-align: center;
 }
+
+.policy-card {
+    max-width: 700px;
+    margin: 2rem;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.policy-card h1 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.policy-card p {
+    line-height: 1.5;
+}

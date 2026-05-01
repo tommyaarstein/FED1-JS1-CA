@@ -3,14 +3,24 @@ const productColor = document.querySelector(".product-color");
 const productDescription = document.querySelector(".product-description");
 const productPrice = document.querySelector(".summary-price .product-price");
 const productImage = document.querySelector(".gallery-figure img");
+const productThumbs = document.querySelectorAll(".gallery-thumbs img");
 const productColorDot = document.querySelector(".product-color-dot")
-
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const productId = params.get("id");
 const productUrl = "https://v2.api.noroff.dev/rainy-days/" + productId;
+const addToCartButton = document.querySelector(".add-to-cart");
+const cartBadge = document.querySelector(".cart-badge")
+const productContent = document.querySelector(".product-content");
+const productExtraInfo = document.querySelector(".product-extra-info");
+const singleProductLoading = document.querySelector(".single-product-loading");
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 console.log(productId);
+
+productContent.style.display = "none";
+productExtraInfo.style.display = "none";
 
 async function fetchSingleProduct() {
     try {
@@ -30,12 +40,43 @@ async function fetchSingleProduct() {
 
 fetchSingleProduct();
 
+function getSingleProductPriceHTML(product) {
+    if (product.onSale) {
+        return `
+            <span class="old-price">$${product.price}</span>
+            <span class="sale-price">$${product.discountedPrice}</span>
+        `;
+    }
+    return `$${product.price}`;
+}
+
 function displaySingleProduct(product) {
     productTitle.textContent = product.title;
     productColor.textContent = product.baseColor;
     productDescription.textContent = product.description
-    productPrice.textContent = "$" + product.price;
+    productPrice.innerHTML = getSingleProductPriceHTML(product);
     productImage.src = product.image.url;
     productImage.alt = product.image.alt;
     productColorDot.style.backgroundColor = product.baseColor;
+    
+    for (let i = 0; i < productThumbs.length; i++) {
+        productThumbs[i].src = product.image.url;
+        productThumbs[i].alt = product.image.alt;
+    }
+
+    addToCartButton.addEventListener("click", function() {
+        cart.push(product);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartBadge();
+        console.log(cart);
+    });
+    singleProductLoading.style.display = "none";
+    productContent.style.display = "grid";
+    productExtraInfo.style.display = "block";
 }
+
+function updateCartBadge() {
+    cartBadge.textContent = cart.length;
+}
+
+updateCartBadge();
