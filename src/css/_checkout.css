@@ -31,6 +31,8 @@
     height: 90px;
     object-fit: contain;
     background: #fff;
+    border-radius: 8px;
+    padding: 0.5rem;
 }
 
 .checkout-item-title {
