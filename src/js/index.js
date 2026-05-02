@@ -3,6 +3,7 @@
 const productGrid = document.querySelector(".product-grid");
 const cartBadge = document.querySelector(".cart-badge");
 const filterButtons = document.querySelectorAll(".filter-button");
+const productSearch = document.querySelector(".product-search")
 
 // --- STATE ---
 let allJackets = [];
@@ -111,6 +112,26 @@ function addFilterListeners() {
     }
 }
 
+function addSearchListener() {
+    if (!productSearch) {
+        return;
+    }
+
+    productSearch.addEventListener("input", function() {
+        const searchValue = productSearch.value.toLowerCase();
+        let searchResults = [];
+
+        for (let i = 0; i < allJackets.length; i++) {
+            const jacketTitle = allJackets[i].title.toLowerCase();
+
+            if (jacketTitle.includes(searchValue)) {
+                searchResults.push(allJackets[i]);
+            }
+        }
+        displayJackets(searchResults);
+    });
+}
+
 function addButtonListeners() {
     const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
 
@@ -140,4 +161,5 @@ function updateCartBadge() {
 // };
 addFilterListeners();
 updateCartBadge();
+addSearchListener();
 fetchJackets();

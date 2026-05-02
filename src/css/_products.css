@@ -20,7 +20,7 @@
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(286px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(286px, 286px));
     gap: 3rem;
     justify-content: center;
 }
@@ -30,6 +30,7 @@
     height: 240px;
     object-fit: contain;
     display: block;
+    transition: transform 0.2s ease;
 }
 
 .product-card h2 {
@@ -40,7 +41,8 @@
 }
 
 .product-card {
-    width: 286px;
+    width: 100%;
+    max-width: 286px;
     height: 405px;
     background: #fff;
     border-radius: 8px;
@@ -49,13 +51,18 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+.product-link:hover img,
+.product-link:focus img {
+    transform: scale(1.03);
 }
+
+.product-link:hover h2,
+.product-link:focus h2 {
+    text-decoration: underline;
+}
+
 
 .product-link {
     display: flex;
@@ -102,4 +109,97 @@
     font-weight: 700;
     transform: rotate(35deg);
     z-index: 2;
+}
+
+/* Search */
+.search-label {
+    color: var(--color-text-inverse);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.product-search {
+    border-radius: 6px;
+    width: 100%;
+    padding: 0.4rem 0.75rem;
+    border: 2px solid transparent;
+    font: inherit;
+}
+
+.product-search:focus {
+    outline: none;
+    border-color: var(--color-bg-gold);
+}
+
+.product-search-wrap {
+    grid-column: 3;
+    width: 100%;
+    max-width: 286px;
+}
+
+/* Filter buttons */
+.filter-button {
+    border-radius: 6px;
+    padding: 0.4rem 1rem;
+    border: 0;
+    color: var(--color-text-primary);
+    background-color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.filter-button:hover,
+.filter-button:focus {
+    background-color: var(--color-bg-gold);
+}
+
+.product-tools {
+    display: grid;
+    grid-template-columns: repeat(3, 286px);
+    gap: 3rem;
+    justify-content: center;
+    align-items: end;
+    margin-bottom: 2rem;
+}
+
+.product-filters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 286px;
+}
+
+@media (max-width: 1050px) {
+    .product-tools {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        justify-items: center;
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .product-filters {
+        grid-row: 2;
+        width: 100%;
+        max-width: 286px;
+    }
+
+    .product-search-wrap {
+        grid-column: 1;
+        grid-row: 1;
+        width: 100%;
+        max-width: 286px;
+    }
+
+    .products-page .container {
+        padding: 2rem 1rem;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 286px));
+        justify-content: center;
+    }
 }
