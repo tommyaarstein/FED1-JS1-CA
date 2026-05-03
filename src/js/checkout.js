@@ -74,9 +74,9 @@ function displayCart() {
                         <p class="checkout-item-meta">Colour: ${groupedCart[i].baseColor}</p>
                         <p class="checkout-item-price">Price: ${getCheckoutPriceHTML(groupedCart[i])}</p>
                         <div class="checkout-qty" role="group" aria-label="Quantity">
-                            <button class="decrease-quantity" data-id="${groupedCart[i].id}" type="button">-</button>
+                            <button class="decrease-quantity" data-id="${groupedCart[i].id}" type="button" aria-label="Decrease quantity">-</button>
                             <span class="qty-value">${groupedCart[i].quantity}</span>
-                            <button class="increase-quantity" data-id="${groupedCart[i].id}" type="button">+</button>
+                            <button class="increase-quantity" data-id="${groupedCart[i].id}" type="button" aria-label="Increase quantity">+</button>
                         </div>
                         <button class="remove-cart-item" data-id="${groupedCart[i].id}" type="button">Remove</button>
                     </div>

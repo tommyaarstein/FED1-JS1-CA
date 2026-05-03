@@ -15,6 +15,7 @@ const productContent = document.querySelector(".product-content");
 const productExtraInfo = document.querySelector(".product-extra-info");
 const singleProductLoading = document.querySelector(".single-product-loading");
 const cartToast = document.querySelector(".cart-toast");
+const productSizes = document.querySelector(".size-options")
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -32,7 +33,9 @@ async function fetchSingleProduct() {
         const result = await response.json();
         displaySingleProduct(result.data);
     } catch (error) {
-        console.error("product error", error);
+        singleProductLoading.innerHTML = `
+        <p class="error-message">Oh no!<br>We could not find this jacket. Please try refreshing the page.</p>
+        `;
     }
 }
 
@@ -56,6 +59,14 @@ function displaySingleProduct(product) {
     productImage.src = product.image.url;
     productImage.alt = product.image.alt;
     productColorDot.style.backgroundColor = product.baseColor;
+
+    let sizesHTML ="";
+
+    for (let i = 0; i < product.sizes.length; i++) {
+        sizesHTML += `<button type="button">${product.sizes[i]}</button>`;
+    }
+
+    productSizes.innerHTML = sizesHTML;
     
     for (let i = 0; i < productThumbs.length; i++) {
         productThumbs[i].src = product.image.url;
