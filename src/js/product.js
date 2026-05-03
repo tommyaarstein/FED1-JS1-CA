@@ -1,26 +1,33 @@
+"use strict";
+
+// --- STATE ---
+const queryString = document.location.search;
+const params = new URLSearchParams(queryString);
+const productId = params.get("id");
+const productUrl = "https://v2.api.noroff.dev/rainy-days/" + productId;
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// --- DOM ELEMENTS ---
 const productTitle = document.querySelector(".product-title");
 const productColor = document.querySelector(".product-color");
 const productDescription = document.querySelector(".product-description");
 const productPrice = document.querySelector(".summary-price .product-price");
 const productImage = document.querySelector(".gallery-figure img");
 const productThumbs = document.querySelectorAll(".gallery-thumbs img");
-const productColorDot = document.querySelector(".product-color-dot")
-const queryString = document.location.search;
-const params = new URLSearchParams(queryString);
-const productId = params.get("id");
-const productUrl = "https://v2.api.noroff.dev/rainy-days/" + productId;
+const productColorDot = document.querySelector(".product-color-dot");
 const addToCartButton = document.querySelector(".add-to-cart");
-const cartBadge = document.querySelector(".cart-badge")
+const cartBadge = document.querySelector(".cart-badge");
 const productContent = document.querySelector(".product-content");
 const productExtraInfo = document.querySelector(".product-extra-info");
 const singleProductLoading = document.querySelector(".single-product-loading");
 const cartToast = document.querySelector(".cart-toast");
-const productSizes = document.querySelector(".size-options")
+const productSizes = document.querySelector(".size-options");
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-productContent.style.display = "none";
-productExtraInfo.style.display = "none";
+// --- FUNCTIONS ---
+function hideProductContent() {
+    productContent.style.display = "none";
+    productExtraInfo.style.display = "none";
+}
 
 async function fetchSingleProduct() {
     try {
@@ -39,8 +46,6 @@ async function fetchSingleProduct() {
     }
 }
 
-fetchSingleProduct();
-
 function getSingleProductPriceHTML(product) {
     if (product.onSale) {
         return `
@@ -54,13 +59,13 @@ function getSingleProductPriceHTML(product) {
 function displaySingleProduct(product) {
     productTitle.textContent = product.title;
     productColor.textContent = product.baseColor;
-    productDescription.textContent = product.description
+    productDescription.textContent = product.description;
     productPrice.innerHTML = getSingleProductPriceHTML(product);
     productImage.src = product.image.url;
     productImage.alt = product.image.alt;
     productColorDot.style.backgroundColor = product.baseColor;
 
-    let sizesHTML ="";
+    let sizesHTML = "";
 
     for (let i = 0; i < product.sizes.length; i++) {
         sizesHTML += `<button type="button">${product.sizes[i]}</button>`;
@@ -73,7 +78,7 @@ function displaySingleProduct(product) {
         productThumbs[i].alt = product.image.alt;
     }
 
-    addToCartButton.addEventListener("click", function() {
+    addToCartButton.addEventListener("click", function () {
         cart.push(product);
         localStorage.setItem("cart", JSON.stringify(cart));
         updateCartBadge();
@@ -81,7 +86,7 @@ function displaySingleProduct(product) {
         if (cartToast) {
             cartToast.classList.add("show");
 
-            setTimeout(function() {
+            setTimeout(function () {
                 cartToast.classList.remove("show");
             }, 2000);
         }
@@ -95,4 +100,7 @@ function updateCartBadge() {
     cartBadge.textContent = cart.length;
 }
 
+// --- INITIAL LOAD ---
+hideProductContent();
 updateCartBadge();
+fetchSingleProduct();

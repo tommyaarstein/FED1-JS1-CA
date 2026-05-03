@@ -1,25 +1,18 @@
+"use strict";
+
+// --- STATE ---
+let allJackets = [];
+let productPagePath = "products/peder-jacket.html";
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // --- DOM ELEMENTS ---
 const productGrid = document.querySelector(".product-grid");
 const cartBadge = document.querySelector(".cart-badge");
 const filterButtons = document.querySelectorAll(".filter-button");
-const productSearch = document.querySelector(".product-search")
+const productSearch = document.querySelector(".product-search");
 const cartToast = document.querySelector(".cart-toast");
 
-// --- STATE ---
-let allJackets = [];
-let productPagePath ="products/peder-jacket.html"
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
 // --- FUNCTIONS ---
-if (document.location.pathname.includes("index.html") || document.location.pathname === "/") {
-    productPagePath = "pages/products/peder-jacket.html";
-}
-
-if (document.location.pathname.includes("/category/")) {
-    productPagePath = "../products/peder-jacket.html";
-}
-
 async function fetchJackets() {
     const url = 'https://v2.api.noroff.dev/rainy-days';
 
@@ -60,6 +53,16 @@ async function fetchJackets() {
     }
 }
 
+function setProductPagePath() {
+    if (document.location.pathname.includes("index.html") || document.location.pathname === "/") {
+        productPagePath = "pages/products/peder-jacket.html";
+    }
+
+    if (document.location.pathname.includes("/category/")) {
+        productPagePath = "../products/peder-jacket.html";
+    }
+}
+
 function getPriceHTML(product) {
     if (product.onSale) {
         return `
@@ -69,7 +72,7 @@ function getPriceHTML(product) {
             </div>
         `;
     }
-    return `<p class="product-price">$${product.price}</p>`
+    return `<p class="product-price">$${product.price}</p>`;
 }
 
 function displayJackets(jacketsToDisplay) {
@@ -92,6 +95,11 @@ function displayJackets(jacketsToDisplay) {
     addButtonListeners();
 }
 
+function updateCartBadge() {
+    cartBadge.textContent = cart.length;
+}
+
+// --- EVENT LISTENERS ---
 function addFilterListeners() {
     for (let i = 0; i < filterButtons.length; i++) {
         filterButtons[i].addEventListener("click", function() {
@@ -150,7 +158,7 @@ function addButtonListeners() {
             if (cartToast) {
                 cartToast.classList.add("show");
 
-                setTimeout(function() {
+                setTimeout(function () {
                     cartToast.classList.remove("show");
                 }, 2000);
             }
@@ -158,15 +166,8 @@ function addButtonListeners() {
     }
 }
 
-function updateCartBadge() {
-    cartBadge.textContent = cart.length;
-}
-
-// function delayLoading() {
-//     return new Promise(function(resolve) {
-//         setTimeout(resolve, 5000);
-//     });
-// };
+// --- INITIAL LOAD ---
+setProductPagePath();
 addFilterListeners();
 updateCartBadge();
 addSearchListener();

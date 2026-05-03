@@ -1,6 +1,17 @@
-const cartBadge = document.querySelector(".cart-badge");
+"use strict";
+
+// --- STATE ---
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-if (cartBadge) {
-    cartBadge.textContent = cart.length;
+// --- DOM ELEMENTS ---
+const cartBadge = document.querySelector(".cart-badge");
+
+// --- FUNCTIONS ---
+function updateCartBadge() {
+    if (cartBadge) {
+        cartBadge.textContent = cart.length;
+    }
 }
+
+// --- INITIAL LOAD ---
+updateCartBadge();
