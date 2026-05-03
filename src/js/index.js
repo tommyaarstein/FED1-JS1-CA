@@ -54,7 +54,6 @@ async function fetchJackets() {
             displayJackets(allJackets);
         }
     } catch (error) {
-        console.error("Failed to fetch jackets:", error);
         productGrid.innerHTML = `
         <p class="error-message">Oh no!<br>We could not find any jackets. Please try refreshing the page.</p>
         `;
