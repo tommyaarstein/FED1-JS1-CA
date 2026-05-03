@@ -1,3 +1,4 @@
+/* Confirmation layout */
 .order-page {
     background: var(--color-bg-blue);
     padding: 3rem 0;
@@ -35,6 +36,7 @@
     color: var(--color-text-inverse);
 }
 
+/* Rating stars */
 .rating {
     display: inline-flex;
     align-items: center;
@@ -74,11 +76,12 @@
     opacity: 0.85;
 }
 
+/* Mobile confirmation page */
 @media (max-width: 900px) {
     .star-btn img {
-            width: 50px;
-            height: 30px;
-            display: block;
-            transition: transform 0.15s ease, opacity 0.15s ease;
-        }
+        width: 50px;
+        height: 30px;
+        display: block;
+        transition: transform 0.15s ease, opacity 0.15s ease;
+    }
 }

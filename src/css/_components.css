@@ -4,7 +4,7 @@
   align-items: center;
   text-align: center;
 }
-
+/* User message */
 .error-message {
   grid-column: 1 / -1;
   max-width: 500px;
@@ -17,6 +17,7 @@
   border-radius: 8px;
 }
 
+/* Loading indicator */
 .loading-message {
 grid-column: 1 / -1;
 display: flex;
@@ -41,6 +42,7 @@ animation: spin 1s linear infinite;
   }
 }
 
+/* Buttons */
 .btn-primary  {
   display: inline-block;
   padding: 0.75rem 1rem;
@@ -56,6 +58,7 @@ animation: spin 1s linear infinite;
   background-color: var(--color-bg-gold-hover);
 }
 
+/* Cart toast */
 .cart-toast {
   position: fixed;
   right: 2rem;

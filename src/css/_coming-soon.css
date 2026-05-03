@@ -1,3 +1,4 @@
+/* Coming soon page */
 .coming-soon {
     background: var(--color-bg-blue);
     min-height: 100vh;
@@ -19,6 +20,7 @@
     text-align: center;
 }
 
+/* Policy pages */
 .policy-card {
     max-width: 700px;
     margin: 2rem;

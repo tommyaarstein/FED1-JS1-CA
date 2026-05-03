@@ -48,7 +48,7 @@ header {
   border-bottom: 2px solid var(--color-text-primary);
 }
 
-/* ===== Cart ===== */
+/* Cart */
 .cart-link {
   position: relative;
   display: inline-flex;
@@ -80,7 +80,7 @@ header {
   border: 2px solid var(--color-bg-gold);
 }
 
-/* ===== Login / Register ===== */
+/* Login and Register */
 .auth-links {
   display: inline-flex;
   align-items: center;
@@ -95,7 +95,7 @@ header {
   font-weight: 500;
 }
 
-/* Mobile menu */
+/* Mobile navigation */
 
 .mobile-nav {
   display: none;

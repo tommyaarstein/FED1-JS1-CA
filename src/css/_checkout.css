@@ -1,3 +1,4 @@
+/* Checkout layout */
 .checkout-page {
     background: var(--color-bg-blue);
     padding: 3rem 0;
@@ -19,6 +20,7 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
+/* Checkout item */
 .checkout-item {
     display: grid;
     grid-template-columns: 90px 1fr;
@@ -51,6 +53,7 @@
     color: var(--color-text-inverse);
 }
 
+/* Checkout controls */
 .checkout-qty {
     display: flex;
     align-items: center;
@@ -76,6 +79,7 @@
     font-weight: 700;
 }
 
+/* Checkout totals */
 .checkout-totals {
     display: grid;
     gap: 0.75rem;
@@ -103,6 +107,7 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
+/* Sale prices */
 .checkout-item-price .old-price {
     color: rgba(255, 255, 255, 0.75);
     text-decoration: line-through;
@@ -114,6 +119,7 @@
     font-weight: 700;
 }
 
+/* Remove button */
 .remove-cart-item {
     border: 0;
     margin-top: 0.35rem;
@@ -134,7 +140,6 @@
 }
 
 /* Checkout toast */
-
 .checkout-message {
     position: fixed;
     right: 1rem;
@@ -158,6 +163,7 @@
     transform: translateY(0);
 }
 
+/* Mobile layout */
 @media (max-width: 600px) {
     .checkout-page {
         padding: 2rem 0;
