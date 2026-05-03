@@ -14,6 +14,7 @@ const cartBadge = document.querySelector(".cart-badge")
 const productContent = document.querySelector(".product-content");
 const productExtraInfo = document.querySelector(".product-extra-info");
 const singleProductLoading = document.querySelector(".single-product-loading");
+const cartToast = document.querySelector(".cart-toast");
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -65,6 +66,14 @@ function displaySingleProduct(product) {
         cart.push(product);
         localStorage.setItem("cart", JSON.stringify(cart));
         updateCartBadge();
+
+        if (cartToast) {
+            cartToast.classList.add("show");
+
+            setTimeout(function() {
+                cartToast.classList.remove("show");
+            }, 2000);
+        }
     });
     singleProductLoading.style.display = "none";
     productContent.style.display = "grid";

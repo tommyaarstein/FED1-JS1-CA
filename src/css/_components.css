@@ -55,3 +55,26 @@ animation: spin 1s linear infinite;
 .btn-primary:hover {
   background-color: var(--color-bg-gold-hover);
 }
+
+.cart-toast {
+  position: fixed;
+  right: 2rem;
+  bottom: 1rem;
+  margin: 0;
+  padding: 0.9rem 1rem;
+  background-color: #dad8d8;
+  color: var(--color-text-primary);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  font-weight: 700;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(1rem);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.cart-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}

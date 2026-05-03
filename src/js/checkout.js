@@ -1,6 +1,8 @@
 const checkoutItems = document.querySelector(".checkout-items");
 const cartBadge = document.querySelector(".cart-badge");
 const cartTotal = document.querySelector(".cart-total");
+const checkoutButton = document.querySelector(".checkout-btn");
+const checkoutMessage = document.querySelector(".checkout-message");
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -148,5 +150,17 @@ function updateCartTotal() {
     }
     cartTotal.textContent = "$" + total.toFixed(2);
 }
+
+checkoutButton.addEventListener("click", function(event) {
+    if (cart.length === 0) {
+        event.preventDefault();
+        checkoutMessage.textContent = "Your cart is empty. Please add a jacket before checkout.";
+        checkoutMessage.classList.add("show");
+
+        setTimeout(function() {
+            checkoutMessage.classList.remove("show");
+        }, 3000);
+    }
+});
 
 updateCartTotal();

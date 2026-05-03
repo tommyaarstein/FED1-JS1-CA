@@ -4,6 +4,7 @@ const productGrid = document.querySelector(".product-grid");
 const cartBadge = document.querySelector(".cart-badge");
 const filterButtons = document.querySelectorAll(".filter-button");
 const productSearch = document.querySelector(".product-search")
+const cartToast = document.querySelector(".cart-toast");
 
 // --- STATE ---
 let allJackets = [];
@@ -145,6 +146,14 @@ function addButtonListeners() {
                     localStorage.setItem("cart", JSON.stringify(cart));
                     updateCartBadge();
                 }
+            }
+
+            if (cartToast) {
+                cartToast.classList.add("show");
+
+                setTimeout(function() {
+                    cartToast.classList.remove("show");
+                }, 2000);
             }
         });
     }
