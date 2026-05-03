@@ -80,7 +80,7 @@ function displayJackets(jacketsToDisplay) {
             <article class="product-card">
             ${jacketsToDisplay[i].onSale ? '<span class="sale-badge">Sale</span>' : ""}
             <a class="product-link" href="${productPagePath}?id=${jacketsToDisplay[i].id}">
-            <img class="product-card img" src="${jacketsToDisplay[i].image.url}" alt="${jacketsToDisplay[i].image.alt}">
+            <img class="product-card-img" src="${jacketsToDisplay[i].image.url}" alt="${jacketsToDisplay[i].image.alt}">
             <h2>${jacketsToDisplay[i].title}</h2>
             </a>
             ${getPriceHTML(jacketsToDisplay[i])}

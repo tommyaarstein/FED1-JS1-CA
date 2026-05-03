@@ -51,12 +51,6 @@
     color: var(--color-text-inverse);
 }
 
-.checkout-divider {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.35);
-    margin: 1.25rem 0;
-}
-
 .checkout-qty {
     display: flex;
     align-items: center;
@@ -77,8 +71,9 @@
 
 .qty-value {
     display: inline-block;
-    min-width: 18px;
+    min-width: 24px;
     text-align: center;
+    font-weight: 700;
 }
 
 .checkout-totals {
@@ -116,12 +111,6 @@
 
 .checkout-item-price .sale-price {
     color: #ffffff;
-    font-weight: 700;
-}
-
-.qty-value {
-    min-width: 24px;
-    text-align: center;
     font-weight: 700;
 }
 

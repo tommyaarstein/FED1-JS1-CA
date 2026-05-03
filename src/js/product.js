@@ -17,8 +17,6 @@ const singleProductLoading = document.querySelector(".single-product-loading");
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-console.log(productId);
-
 productContent.style.display = "none";
 productExtraInfo.style.display = "none";
 
@@ -31,7 +29,6 @@ async function fetchSingleProduct() {
         }
 
         const result = await response.json();
-        console.log(result.data);
         displaySingleProduct(result.data);
     } catch (error) {
         console.error("product error", error);
@@ -68,7 +65,6 @@ function displaySingleProduct(product) {
         cart.push(product);
         localStorage.setItem("cart", JSON.stringify(cart));
         updateCartBadge();
-        console.log(cart);
     });
     singleProductLoading.style.display = "none";
     productContent.style.display = "grid";
