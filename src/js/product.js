@@ -16,7 +16,6 @@ const productImage = document.querySelector(".gallery-figure img");
 const productThumbs = document.querySelectorAll(".gallery-thumbs img");
 const productColorDot = document.querySelector(".product-color-dot");
 const addToCartButton = document.querySelector(".add-to-cart");
-const cartBadge = document.querySelector(".cart-badge");
 const productContent = document.querySelector(".product-content");
 const productExtraInfo = document.querySelector(".product-extra-info");
 const singleProductLoading = document.querySelector(".single-product-loading");
@@ -49,11 +48,11 @@ async function fetchSingleProduct() {
 function getSingleProductPriceHTML(product) {
     if (product.onSale) {
         return `
-            <span class="old-price">$${product.price}</span>
-            <span class="sale-price">$${product.discountedPrice}</span>
+            <span class="old-price">${formatPrice(product.price)}</span>
+            <span class="sale-price">${formatPrice(product.discountedPrice)}</span>
         `;
     }
-    return `$${product.price}`;
+    return formatPrice(product.price);
 }
 
 function displaySingleProduct(product) {
@@ -81,7 +80,7 @@ function displaySingleProduct(product) {
     addToCartButton.addEventListener("click", function () {
         cart.push(product);
         localStorage.setItem("cart", JSON.stringify(cart));
-        updateCartBadge();
+        updateCartBadge(cart.length);
 
         if (cartToast) {
             cartToast.classList.add("show");
@@ -96,11 +95,7 @@ function displaySingleProduct(product) {
     productExtraInfo.style.display = "block";
 }
 
-function updateCartBadge() {
-    cartBadge.textContent = cart.length;
-}
-
 // --- INITIAL LOAD ---
 hideProductContent();
-updateCartBadge();
+updateCartBadge(cart.length);
 fetchSingleProduct();

@@ -7,7 +7,6 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // --- DOM ELEMENTS ---
 const productGrid = document.querySelector(".product-grid");
-const cartBadge = document.querySelector(".cart-badge");
 const filterButtons = document.querySelectorAll(".filter-button");
 const productSearch = document.querySelector(".product-search");
 const cartToast = document.querySelector(".cart-toast");
@@ -67,12 +66,12 @@ function getPriceHTML(product) {
     if (product.onSale) {
         return `
             <div class="product-price">
-                <span class="old-price">$${product.price}</span>
-                <span class="sale-price">$${product.discountedPrice}</span>
+                <span class="old-price">${formatPrice(product.price)}</span>
+                <span class="sale-price">${formatPrice(product.discountedPrice)}</span>
             </div>
         `;
     }
-    return `<p class="product-price">$${product.price}</p>`;
+    return `<p class="product-price">${formatPrice(product.price)}</p>`;
 }
 
 function displayJackets(jacketsToDisplay) {
@@ -95,9 +94,6 @@ function displayJackets(jacketsToDisplay) {
     addButtonListeners();
 }
 
-function updateCartBadge() {
-    cartBadge.textContent = cart.length;
-}
 
 // --- EVENT LISTENERS ---
 function addFilterListeners() {
@@ -151,7 +147,7 @@ function addButtonListeners() {
                 if (allJackets[j].id === clickedProductId) {
                     cart.push(allJackets[j]);
                     localStorage.setItem("cart", JSON.stringify(cart));
-                    updateCartBadge();
+                    updateCartBadge(cart.length);
                 }
             }
 
@@ -169,6 +165,6 @@ function addButtonListeners() {
 // --- INITIAL LOAD ---
 setProductPagePath();
 addFilterListeners();
-updateCartBadge();
+updateCartBadge(cart.length);
 addSearchListener();
 fetchJackets();

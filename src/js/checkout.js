@@ -6,15 +6,11 @@ let groupedCart = [];
 
 // --- DOM ELEMENTS ---
 const checkoutItems = document.querySelector(".checkout-items");
-const cartBadge = document.querySelector(".cart-badge");
 const cartTotal = document.querySelector(".cart-total");
 const checkoutButton = document.querySelector(".checkout-btn");
 const checkoutMessage = document.querySelector(".checkout-message");
 
 // --- FUNCTIONS ---
-function updateCartBadge() {
-  cartBadge.textContent = cart.length;
-}
 
 function groupCartItems() {
   groupedCart = [];
@@ -56,11 +52,11 @@ function getProductPrice(product) {
 function getCheckoutPriceHTML(product) {
   if (product.onSale) {
     return `
-            <span class="old-price">$${product.price}</span>
-            <span class="sale-price">$${product.discountedPrice}</span>
+            <span class="old-price">${formatPrice(product.price)}</span>
+            <span class="sale-price">${formatPrice(product.discountedPrice)}</span>
         `;
   }
-  return `$${product.price}`;
+  return formatPrice(product.price);
 }
 
 function displayCart() {
@@ -96,7 +92,7 @@ function updateCartTotal() {
   for (let i = 0; i < cart.length; i++) {
     total += getProductPrice(cart[i]);
   }
-  cartTotal.textContent = "$" + total.toFixed(2);
+  cartTotal.textContent = formatPrice(total);
 }
 
 // --- EVENT LISTENERS ---
@@ -113,7 +109,7 @@ checkoutItems.addEventListener("click", function (event) {
 
     cart = remainingCartItems;
     localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartBadge();
+    updateCartBadge(cart.length);
     updateCartTotal();
     displayCart();
   }
@@ -129,7 +125,7 @@ checkoutItems.addEventListener("click", function (event) {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartBadge();
+    updateCartBadge(cart.length);
     updateCartTotal();
     displayCart();
   }
@@ -145,7 +141,7 @@ checkoutItems.addEventListener("click", function (event) {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartBadge();
+    updateCartBadge(cart.length);
     updateCartTotal();
     displayCart();
   }
@@ -165,6 +161,6 @@ checkoutButton.addEventListener("click", function (event) {
 });
 
 // --- INITIAL LOAD ---
-updateCartBadge();
+updateCartBadge(cart.length);
 displayCart();
 updateCartTotal();
